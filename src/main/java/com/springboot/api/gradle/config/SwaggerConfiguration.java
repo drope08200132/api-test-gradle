@@ -21,7 +21,8 @@ public class SwaggerConfiguration {
         return new Docket(DocumentationType.SWAGGER_2)
                    .select()                 
                    .apis(RequestHandlerSelectors.basePackage("com.springboot.api.gradle.controller"))
-                   .paths(regex("/persona.*"))
+                   //.paths(regex("/persona.*"))
+                   .paths(regex("/cliente.*"))
                    .build()
                    .apiInfo(metaData());
     }
@@ -29,7 +30,7 @@ public class SwaggerConfiguration {
     private ApiInfo metaData() {
     	
    	 return new ApiInfoBuilder()
-        		.title("Microservicio de mantenimiento de Persona")
+        		.title("Microservicio de mantenimiento de Cliente")
                 .description("Api destinada a las operaciones básicas de una tabla")
                 .termsOfServiceUrl("Términos del Servicio")
                 .version("1.0")

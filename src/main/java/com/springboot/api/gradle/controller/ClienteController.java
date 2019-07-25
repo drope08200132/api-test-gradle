@@ -11,40 +11,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.api.gradle.model.Persona;
-import com.springboot.api.gradle.service.impl.PersonaServiceImpl;
+import com.springboot.api.gradle.model.Cliente;
+import com.springboot.api.gradle.service.impl.ClienteServiceImpl;
+
 
 @RestController
-@RequestMapping("/persona")
-public class PersonaController {
+@RequestMapping("/cliente")
+public class ClienteController {
 	
 	@Autowired
-	private PersonaServiceImpl _personaService;
+	private ClienteServiceImpl _clienteService;
 	
 	@GetMapping(value = "/all", produces = "application/json")	
-	public List<Persona> getAllPersonas(){
-		return _personaService.getAllPersonas();
+	public List<Cliente> getAllClientes(){
+		return _clienteService.getAllClientes();
 	}
 	
 	@GetMapping(value = "/get/{id}", produces = "application/json")	
-	public Persona getPersona(@PathVariable ("id") Integer id){
-		return _personaService.getPersona(id);
+	public Cliente getPersona(@PathVariable ("id") Integer id){
+		return _clienteService.getCliente(id);
 	}
 	
 	@PostMapping(value = "/save", produces = "application/json")	
-	public List<Persona> savePersona(@RequestBody Persona persona){
+	public List<Cliente> saveCliente(@RequestBody Cliente cliente){
 		
-		_personaService.savePersona(persona);
+		_clienteService.saveCliente(cliente);
 		
-		return _personaService.getAllPersonas();
+		return _clienteService.getAllClientes();
 	}	
 	
 	@DeleteMapping(value = "/delete/{id}", produces = "application/json")	
-	public List<Persona> deletePersona(@PathVariable ("id") Integer id){
+	public List<Cliente> deleteCliente(@PathVariable ("id") Integer id){
 		
-		_personaService.deletePersona(id);
+		_clienteService.deleteCliente(id);
 		
-		return _personaService.getAllPersonas();
+		return _clienteService.getAllClientes();
 	}	
 
 }
